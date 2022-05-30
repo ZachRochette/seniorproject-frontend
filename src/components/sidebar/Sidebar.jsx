@@ -11,6 +11,9 @@ import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import EventIcon from '@mui/icons-material/Event';
 import SchoolIcon from '@mui/icons-material/School';
 
+import { Users } from "../../dummyData";
+import CloseFriend from "../closeFriend/CloseFriend";
+
 export default function Sidebar() {
     return (
         <div className="sidebar">
@@ -56,10 +59,9 @@ export default function Sidebar() {
                 <button className="sidebarButton">Show More</button>
                 <hr className="sidebarHr"/>
                 <ul className="sidebarFriendList">
-                    <li className="sidebarFriend">
-                        <img className="sidebarFriendImg" src="/assets/person/8.jpg" alt="" />
-                        <span className="sidebarFriendName">Zach Rochette</span>
-                    </li>
+                    {Users.map(u => (
+                        <CloseFriend key={u.id} user={u}/>
+                    ))}
                 </ul>
             </div>
         </div>
